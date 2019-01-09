@@ -166,9 +166,9 @@ init python:
 
     build.classify("game/mod_assets/**", "mod_assets")
     build.classify("game/**.rpyc", "scripts")
+    build.classify("game/README.txt", None)
     build.classify("game/**.txt", "scripts")
     build.classify("game/**.chr", "scripts")
-    build.classify("game/advanced_scripts/**","scripts")
 
     build.classify('**~', None)
     build.classify('**.bak', None)
@@ -190,3 +190,8 @@ init python:
     build.documentation('README.html')
 
     build.include_old_themes = False
+
+    #Advanced Addons
+
+    # Doki Doki Mod Manager metadata file
+    build.classify('ddmm-mod.json',build.name)
