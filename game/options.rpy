@@ -169,6 +169,7 @@ init python:
     build.classify("game/README.txt", None)
     build.classify("game/**.txt", "scripts")
     build.classify("game/**.chr", "scripts")
+    build.classify("game/advanced_scripts/**","scripts")
 
     build.classify('**~', None)
     build.classify('**.bak', None)

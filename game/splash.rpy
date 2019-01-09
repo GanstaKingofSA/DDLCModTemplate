@@ -4,7 +4,7 @@ init -100 python:
 
     # Checks to see if all of DDLC's files are inside
     # You may remove 'scripts' if you recieve conflict with scripts.rpa
-    for archive in ['audio','images','fonts','scripts']:
+    for archive in ['audio','images','fonts']:
         if archive not in config.archives:
             renpy.error("DDLC archive files not found in /game folder. Check your installation and try again.")
 
@@ -30,6 +30,11 @@ image menu_logo:
     ycenter 120
     zoom 0.60
     menu_logo_move
+
+image menu_bg:
+    topleft
+    "gui/menu_bg.png"
+    menu_bg_move
 
 image game_menu_bg:
     topleft
@@ -277,11 +282,10 @@ label splashscreen:
 
         python:
             if not firstrun:
-                try:
-                    with open(config.basedir + "/game/firstrun", "w") as f:
-                        f.write("1")
-                filepath = renpy.file("firstrun").name
-                open(filepath, "a").close()
+                with open(config.basedir + "/game/firstrun", "w") as f:
+                    f.write("1")
+            filepath = renpy.file("firstrun").name
+            open(filepath, "a").close()
 
     # Sets First Run to False to Show Disclaimer
     default persistent.first_run = False
