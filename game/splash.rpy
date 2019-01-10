@@ -256,8 +256,8 @@ label splashscreen:
                 pass
 
 
-    #python:
-        #firstrun = ""
+    python:
+        firstrun = ""
         #try:
             #firstrun = renpy.file("firstrun").read(1)
         #except:
@@ -490,4 +490,3 @@ label quit:
             xpos -100 ypos -100 zoom 3.5
         pause 0.01
     return
-
