@@ -256,13 +256,13 @@ label splashscreen:
                 pass
 
 
-    python:
-        firstrun = ""
-        try:
-            firstrun = renpy.file("firstrun").read(1)
-        except:
-            with open(config.basedir + "/game/firstrun", "wb") as f:
-                pass
+    #python:
+        #firstrun = ""
+        #try:
+            #firstrun = renpy.file("firstrun").read(1)
+        #except:
+            #with open(config.basedir + "/game/firstrun", "wb") as f:
+                #pass
 
     if not firstrun:
         if persistent.first_run and (config.version == persistent.oldversion or persistent.autoload == "postcredits_loop"):
@@ -280,12 +280,13 @@ label splashscreen:
                 "No, continue where I left off.":
                     $ restore_relevant_characters()
 
-        python:
-            if not firstrun:
-                with open(config.basedir + "/game/firstrun", "w") as f:
-                    f.write("1")
-            filepath = renpy.file("firstrun").name
-            open(filepath, "a").close()
+        #python:
+            #if not firstrun:
+                #try:
+                    #with open(config.basedir + "/game/firstrun", "w") as f:
+                        #f.write("1")
+                #filepath = renpy.file("firstrun").name
+                #open(filepath, "a").close()
 
     # Sets First Run to False to Show Disclaimer
     default persistent.first_run = False
@@ -489,3 +490,4 @@ label quit:
             xpos -100 ypos -100 zoom 3.5
         pause 0.01
     return
+
