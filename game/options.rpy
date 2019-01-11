@@ -11,7 +11,7 @@ define gui.show_name = True
 # This is where you will input the version of your mod.
 # If you have multiple versions of your mod, this will be pretty useful to change.
 # If you are starting out, set this to "1.0.0"
-define config.version = "2.0.0"
+define config.version = "2.1.0"
 
 # This adds information about your mod in the About section.
 # DDLC does not have a about section so you can leave this blank.
@@ -161,8 +161,8 @@ init python:
     # Code to Package your mod to a ZIP in Ren'Py
     build.package(build.directory_name + "Mod",'zip',build.name,description='DDLC Compatible Mod')
 
-    build.archive("scripts", "all")
-    build.archive("mod_assets", "all")
+    build.archive("scripts", build.name)
+    build.archive("mod_assets", build.name)
 
     build.classify("game/mod_assets/**", "mod_assets")
     build.classify("game/**.rpyc", "scripts")
